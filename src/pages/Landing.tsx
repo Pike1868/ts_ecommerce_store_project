@@ -6,13 +6,13 @@ const url = "/products?featured=true"
 
 export const loader:LoaderFunction = async():Promise<ProductsResponse>=>{
   const response = await customFetch<ProductsResponse>(url)
-  console.log(response);
+  // console.log(response);
   return {...response.data};
  }
 
 export default function Landing() {
 const result = useLoaderData() as ProductsResponse
-console.log(result)
+
 
   return (
     <>
