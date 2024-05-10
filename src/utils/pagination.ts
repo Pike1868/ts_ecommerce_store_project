@@ -34,7 +34,7 @@ export const constructPrevOrNextUrl = ({
 
     let nextPage = currentPage + 1;
     if (nextPage > pageCount) nextPage = 1;
-    const nextUrl = constructUrl({ pageNumber: prevPage, search, pathname })
+    const nextUrl = constructUrl({ pageNumber: nextPage, search, pathname })
 
     return { prevUrl, nextUrl }
 }

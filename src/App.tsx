@@ -13,12 +13,16 @@ import {
   Orders,
 } from './pages';
 import { ErrorElement } from './components';
-import {loader as landingLoader } from "./pages/Landing"
-import {loader as productsLoader } from "./pages/Products"
-import {loader as SingleProductLoader} from "./pages/SingleProduct"
-import {loader as checkoutLoader} from "./pages/Checkout"
-import {action as registerUser} from "./pages/Register"
-import {action as loginUser} from "./pages/Login"
+//loaders from pages
+import {loader as landingLoader } from "./pages/Landing";
+import {loader as productsLoader } from "./pages/Products";
+import {loader as SingleProductLoader} from "./pages/SingleProduct";
+import {loader as checkoutLoader} from "./pages/Checkout";
+import {loader as ordersLoader} from "./pages/Orders"
+// actions
+import {action as registerUser} from "./pages/Register";
+import {action as loginUser} from "./pages/Login";
+import {action as checkoutAction} from "./components/CheckoutForm";
 import {store} from "./store"
 
 
@@ -45,15 +49,21 @@ const router = createBrowserRouter([
      element:<Cart/>,
      errorElement:<ErrorElement/>
     },
-    {path:"about",element:<About/>,errorElement:<ErrorElement/>},
+    {path:"about",
+     element:<About/>,
+     errorElement:<ErrorElement/>
+    },
     {path:"checkout",
      element:<Checkout/>,
      errorElement:<ErrorElement/>, 
      loader:checkoutLoader(store),
+     action:checkoutAction(store),
     },
     {path:"orders",
      element:<Orders/>,
-     errorElement:<ErrorElement/>},
+     errorElement:<ErrorElement/>,
+     loader:ordersLoader(store),
+    },
   ]},
   {path:"/login", 
    element:<Login/>,

@@ -5,7 +5,7 @@ import { toast } from '@/components/ui/use-toast';
 import { type ReduxStore } from '@/store';
 
 export const loader = (store:ReduxStore):LoaderFunction => async():Promise<Response|null> => {
-  console.log(store);
+  // console.log(store);
   const user = store.getState().userState.user;
 
   if(!user){
@@ -17,7 +17,6 @@ export const loader = (store:ReduxStore):LoaderFunction => async():Promise<Respo
 
 export default function Checkout() {
   const cartTotal = useAppSelector((state)=>state.cartState.cartTotal);
-  console.log(cartTotal)
   if(cartTotal === 0 ){
     return <SectionTitle text="Your cart is empty" />
   }
