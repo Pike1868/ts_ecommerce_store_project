@@ -14,7 +14,7 @@ type SelectProductAmountProps ={
 type SelectCartItemAmountProps = {
   mode: Mode.CartItem,
   amount:number,
-  setAmount:React.Dispatch<React.SetStateAction<number>>,
+  setAmount: (value: number) => void;
 }
 
 
